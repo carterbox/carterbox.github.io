@@ -1,8 +1,13 @@
-<!doctype html>
-<head>
-
-<body onload="start()">
-  <canvas id="glcanvas" width="640" height="480">
-    Your browser doesn't appear to support the HTML5 <code>&lt;canvas&gt;</code> element.
-  </canvas>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!--- Libraries for WebGL rendering --->
+    <script type="text/javascript" SRC="jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" SRC="three.min.js"></script>
+    <script type="text/javascript" SRC="gldemo.js" ></script>
+  </head>
+  <body onload="startgl()">
+    <div id="glcanvas" style="height: 480px; width: 640px;"></div>
+  </body>
+</html>
