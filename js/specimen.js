@@ -3,6 +3,16 @@ var clouds = [];
 var container;
 var HEIGHT = 500;
 
+function enableButtons() {
+	var numclouds = clouds.length;
+	if (numclouds > 0) {
+		$('.btn').removeClass('disabled');
+	}
+	else {
+		$('.btn').addClass('disabled');
+	}
+ }
+
 function init() {
 	container = document.getElementById('glcanvas');
 	WIDTH = container.clientWidth; // Width is dynamic and depends on styling.
@@ -24,7 +34,7 @@ function init() {
 	// Load object(s)
 	var loader = new THREE.cOBJLoader();
 	var geometry = loader.parse('http://people.oregonstate.edu/~chingd/obj/bunny.obj');
-	var material = new THREE.PointCloudMaterial( {color: 0x9933ff, size:0.001});
+	var material = new THREE.PointCloudMaterial( {color: 0xffffff, size:0.001});
 	clouds[0] = new THREE.PointCloud(geometry, material);
 	scene.add(clouds[0]);
 
@@ -37,6 +47,7 @@ function init() {
 	container.appendChild(renderer.domElement);
 
 	window.addEventListener( 'resize', onWindowResize, false );
+	enableButtons();
 }
 
 function onWindowResize() {
@@ -65,6 +76,39 @@ function startgl() {
 }
 
 var main = function() {
+	$('.auto-rotate-button').click(function() {
+		// Toggle auto rotation
+			$('.auto-rotate-button').removeClass('active');
+			controls.autoRotate = controls.autoRotate === false;
+			if(controls.autoRotate) {
+					$('.auto-rotate-button').addClass('active');
+			}
+	});
+	$('.color-button').click(function() {
+		// Toggle color segmentation
+		clouds[0].material.color.setRGB(1,0,0);
+	});
+	$('.wood-button').click(function() {
+			$('.wood-button').removeClass('active');
+			clouds[0].visible = clouds[0].visible === false;
+			if(clouds[0].visible) {
+					$('.wood-button').addClass('active');
+			}
+	});
+	$('.interphase-button').click(function() {
+			$('.interphase-button').removeClass('active');
+			clouds[1].visible = clouds[1].visible === false;
+			if(clouds[1].visible) {
+					$('.interphase-button').addClass('active');
+			}
+	});
+	$('.adhesive-button').click(function() {
+			$('.adhesive-button').removeClass('active');
+			clouds[2].visible = clouds[2].visible === false;
+			if(clouds[2].visible) {
+					$('.adhesive-button').addClass('active');
+			}
+	});
 	$(document).keypress(function(event)	{
 		if(event.which === 114) {
 			// r toggle camera rotation.
