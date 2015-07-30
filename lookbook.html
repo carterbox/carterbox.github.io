@@ -1,9 +1,19 @@
 <!doctype html>
+<html>
 <head>
+  <meta charset="utf-8">
+  <!--- Libraries for WebGL rendering --->
+  <script type="text/javascript" SRC="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" SRC="js/three.min.js"></script>
+  <script type="text/javascript" SRC="js/OBJLoader.js"></script>
+  <script type="text/javascript" SRC="js/OrbitControls.js"></script>
+  <!---<script src="Detector.js"></script>--->
+  <script type="text/javascript" SRC="js/specimen.js" ></script>
+  <!--- Style Sheets --->
   <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
   <link rel="stylesheet" href="lookbook.css">
 </head>
-<body>
+<body onload="startgl()">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -71,7 +81,7 @@
           </table>
         </div>
         <div class="big-image col-md-7">
-          <img src="/home/chingd/Documents/lookbook/volumecolor/1WXA.png" alt="" />
+          <div id="glcanvas"></div>
         </div>
         <div class="switchboard col-md-1">
           <div class="btn-group-vertical" role="group" aria-label="...">
@@ -151,4 +161,10 @@
       </p>
     </div>
   </div>
+  <script type="text/javascript">
+    // THREE script that displays error message if no webGL support.
+    //if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+    $(document).ready(main);
+  </script>
 </body>
+</html>
