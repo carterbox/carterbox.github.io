@@ -2,13 +2,15 @@ var scene, camera, renderer;
 var geometry, material, cloud;
 
 function loadCloudGeometry(objname) {
-	var ageometry = new THREE.BoxGeometry( 1, 1, 1 );
-	//ageometry.vertices.push(new THREE.Vector3(0, 0, 0),
-		//											new THREE.Vector3(0, 1, 0),
-			//										new THREE.Vector3(0, 0, 1));
-	//var colors = [1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0];
+	var ageometry = new THREE.Geometry();
 
-	//ageometry.colors = colors;
+	ageometry.vertices.push(
+		new THREE.Vector3( -1,  1, 0 ),
+		new THREE.Vector3( -1, -1, 0 ),
+		new THREE.Vector3(  1, -1, 0 )
+	);
+
+	//console.log(ageometry);
 	return ageometry;
 }
 
@@ -26,12 +28,10 @@ function init() {
 	camera.position.z = 4;
 
 	// Load objects
-
-	geometry = loadCloudGeometry('/obj/bunny.obj');
+	geometry = loadCloudGeometry('/home/chingd/Documents/lookbook/obj/bunny.obj');
 	material = new THREE.PointCloudMaterial();
 	cloud = new THREE.PointCloud(geometry, material);
 	scene.add(cloud);
-
 
 	// Render
 	renderer = new THREE.WebGLRenderer();
