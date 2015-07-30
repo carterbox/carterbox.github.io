@@ -32,12 +32,11 @@ function init() {
 	renderer.setSize( WIDTH, HEIGHT );
 	renderer.setClearColor( 0x000000, 1);
 
+	// Attach the viewport to the page.
 	container = document.getElementById("glcanvas");
 	container.appendChild(renderer.domElement);
 
 	window.addEventListener( 'resize', onWindowResize, false );
-
-	animate();
 };
 
 function onWindowResize() {

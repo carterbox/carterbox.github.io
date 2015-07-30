@@ -11,9 +11,11 @@
     <script type="text/javascript" SRC="gldemo.js" ></script>
   </head>
   <body onload="startgl()">
-    <div id="glcanvas" style="height: 480px; width: 640px;"></div>
+    <div id="glcanvas"></div>
   </body>
   <script type="text/javascript">
+    // THREE script that displays error message if no webGL support.
+    //if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
     $(document).ready(main);
   </script>
 </html>
