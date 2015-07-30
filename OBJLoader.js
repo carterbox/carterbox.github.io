@@ -1,14 +1,33 @@
+function getfilefromremote(dir) {
+	 var request = new XMLHttpRequest();
+	 request.open("GET", dir, false);
+	 request.send(null);
+	 var text = request.responseText;
+	 return text;
+};
 /**
- * @author mrdoob / http://mrdoob.com/
+ * Adapted from @author mrdoob / http://mrdoob.com/
  */
+ THREE.cOBJLoader = function ( manager ) {
 
-	parse: function ( text ) {
+ 	this.manager = ( manager !== undefined ) ? manager : THREE.DefaultLoadingManager;
 
-		console.time( 'OBJLoader' );
+ };
+
+ THREE.cOBJLoader.prototype = {
+
+ 	constructor: THREE.cOBJLoader,
+
+ 	parse: function ( filedir ) {
+
+		var text = getfilefromremote(filedir);
+
+		//console.log( text );
+ 		console.time( 'OBJLoader' );
 
 // Initialize some variables.
 		var object, objects = [];
-		var geometry;
+		var geometry = new THREE.Geometry();
 		var vertices = [], normals = [];
 
 // Helper Functions
@@ -59,7 +78,6 @@
 
 // START PARSING --------------------------------------------------------------
 		for ( var i = 0; i < lines.length; i ++ ) {
-
 			var line = lines[ i ];
 			line = line.trim();
 
@@ -70,11 +88,11 @@
 				continue;
 			} else if ( ( result = vertex_pattern.exec( line ) ) !== null ) {
 				// ["v 1.0 2.0 3.0", "1.0", "2.0", "3.0"]
-				vertices.push(
+				geometry.vertices.push( new THREE.Vector3(
 					parseFloat( result[ 1 ] ),
 					parseFloat( result[ 2 ] ),
 					parseFloat( result[ 3 ] )
-				);
+				));
 			} else if ( ( result = normal_pattern.exec( line ) ) !== null ) {
 				// ["vn 1.0 2.0 3.0", "1.0", "2.0", "3.0"]
 				normals.push(
@@ -87,17 +105,12 @@
 				geometry = {
 					vertices: [],
 					normals: [],
-					uvs: []
-				};
-
-				material = {
-					name: ''
 				};
 
 				object = {
 					name: line.substring( 2 ).trim(),
 					geometry: geometry,
-					material: material
+					//material: material
 				};
 
 				objects.push( object )
@@ -118,7 +131,8 @@
 
 		var container = new THREE.Object3D();
 
-		for ( var i = 0, l = objects.length; i < l; i ++ ) {
+		while (false) {
+		//for ( var i = 0, l = objects.length; i < l; i ++ ) {
 
 			object = objects[ i ];
 			geometry = object.geometry;
@@ -147,6 +161,10 @@
 
 		console.timeEnd( 'OBJLoader' );
 
-		return container;
+		//geometry.vertices.push(new THREE.Vector3( -1,  1, 0 ));
+		//console.log(geometry);
+		return geometry;
 
-	};
+	}
+
+};

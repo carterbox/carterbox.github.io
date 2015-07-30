@@ -1,7 +1,7 @@
 var scene, camera, renderer;
 var geometry, material, cloud;
 
-function loadCloudGeometry(objname) {
+/*function loadCloudGeometry(objname) {
 	var ageometry = new THREE.Geometry();
 
 	ageometry.vertices.push(
@@ -12,7 +12,7 @@ function loadCloudGeometry(objname) {
 
 	//console.log(ageometry);
 	return ageometry;
-}
+}*/
 
 function init() {
 	HEIGHT = window.innerWidth;
@@ -28,7 +28,8 @@ function init() {
 	camera.position.z = 4;
 
 	// Load objects
-	geometry = loadCloudGeometry('/home/chingd/Documents/lookbook/obj/bunny.obj');
+	var loader = new THREE.cOBJLoader();
+	geometry = loader.parse('http://people.oregonstate.edu/~chingd/obj/bunny.obj');
 	material = new THREE.PointCloudMaterial();
 	cloud = new THREE.PointCloud(geometry, material);
 	scene.add(cloud);
