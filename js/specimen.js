@@ -1,10 +1,11 @@
 var scene, camera, renderer;
 var clouds = [];
 var container;
+var HEIGHT = 500;
 
 function init() {
-	HEIGHT = 480;//window.innerWidth;
-	WIDTH = 640;//window.innerWidth;
+	container = document.getElementById('glcanvas');
+	WIDTH = container.clientWidth; // Width is dynamic and depends on styling.
 
 	// Set up Light, Camera, and Scene
 	scene = new THREE.Scene();
@@ -33,16 +34,16 @@ function init() {
 	renderer.setClearColor( 0x000000, 1);
 
 	// Attach the viewport to the page.
-	container = document.getElementById("glcanvas");
 	container.appendChild(renderer.domElement);
 
 	window.addEventListener( 'resize', onWindowResize, false );
-};
+}
 
 function onWindowResize() {
-		camera.aspect = window.innerWidth / window.innerHeight;
+	WIDTH = container.clientWidth;
+		camera.aspect = WIDTH / HEIGHT;
 		camera.updateProjectionMatrix();
-		renderer.setSize( window.innerWidth, window.innerHeight );
+		renderer.setSize( WIDTH, HEIGHT );
 		render();
 }
 
@@ -54,6 +55,8 @@ function animate() {
 
 function render() {
 	renderer.render( scene, camera );
+	//console.log(HEIGHT);
+	//console.log(WIDTH);
 }
 
 function startgl() {
