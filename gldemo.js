@@ -1,22 +1,10 @@
 var scene, camera, renderer;
 var geometry, material, cloud;
-
-/*function loadCloudGeometry(objname) {
-	var ageometry = new THREE.Geometry();
-
-	ageometry.vertices.push(
-		new THREE.Vector3( -1,  1, 0 ),
-		new THREE.Vector3( -1, -1, 0 ),
-		new THREE.Vector3(  1, -1, 0 )
-	);
-
-	//console.log(ageometry);
-	return ageometry;
-}*/
+var rotateflag = false;
 
 function init() {
-	HEIGHT = window.innerWidth;
-	WIDTH = window.innerWidth;
+	HEIGHT = 480;//window.innerWidth;
+	WIDTH = 640;//window.innerWidth;
 
 	// Set up Light, Camera, and Scene
 	scene = new THREE.Scene();
@@ -30,7 +18,7 @@ function init() {
 	// Load objects
 	var loader = new THREE.cOBJLoader();
 	geometry = loader.parse('http://people.oregonstate.edu/~chingd/obj/bunny.obj');
-	material = new THREE.PointCloudMaterial();
+	material = new THREE.PointCloudMaterial( {color: 0x9933ff, size:0.001});
 	cloud = new THREE.PointCloud(geometry, material);
 	scene.add(cloud);
 
@@ -44,17 +32,30 @@ function init() {
 };
 
 function animate() {
-
 	requestAnimationFrame( animate );
-
-	cloud.rotation.x += 0.01;
-	cloud.rotation.y += 0.02;
-
 	renderer.render( scene, camera );
+	if (rotateflag) {
+		cloud.rotation.x += 0.01;
+	}
+
 
 };
 
 function startgl() {
 	init();
 	animate();
+};
+
+var main = function() {
+	$(document).keypress(function(event)	{
+		if(event.which === 114) {
+			// r toggle cloud rotation.
+			rotateflag = rotateflag === false;
+		}
+		else if(event.which === 104) {
+			// h hides the cloud.
+			cloud.visible = cloud.visible === false;
+		}
+	});
+
 };
