@@ -112,11 +112,19 @@ var main = function() {
 	$(document).keypress(function(event)	{
 		if(event.which === 114) {
 			// r toggle camera rotation.
+			$('.auto-rotate-button').removeClass('active');
 			controls.autoRotate = controls.autoRotate === false;
+			if(controls.autoRotate) {
+					$('.auto-rotate-button').addClass('active');
+			}
 		}
 		else if(event.which === 104) {
 			// h hides the cloud.
+			$('.wood-button').removeClass('active');
 			clouds[0].visible = clouds[0].visible === false;
+			if(clouds[0].visible) {
+					$('.wood-button').addClass('active');
+			}
 		}
 	});
 };
