@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
   <link rel="stylesheet" href="lookbook.css">
 </head>
-<body onload="startgl()">
+<body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -80,16 +80,21 @@
             </tbody>
           </table>
         </div>
-        <div id="glcanvas" class="big-image col-md-7">
+        <div id="spin-gif" class="big-image col-md-7">
+            <img id = "spin-b" src="step1/rotate3D01b.png" alt="" class=""/>
+          <div id = "spin-color" class="hidden">
+            <img id = "spin-a" src="step1/rotate3D01a.png" alt="" class="hidden"/>
+            <img id = "spin-c" src="step1/rotate3D01c.png" alt="" class=""/>
+          </div>
         </div>
         <div class="switchboard col-md-1">
-          <div class="btn-group-vertical" role="group" aria-label="...">
-            <button type="button" class="btn btn-default disabled active wood-button">wood</button>
-            <button type="button" class="btn btn-default disabled active interphase-button">interphase</button>
-            <button type="button" class="btn btn-default disabled active adhesive-button">adhesive</button>
+          <div class="btn-group-vertical disabled" role="group" aria-label="...">
+            <button type="button" class="btn btn-success disabled active wood-button phase-button">wood</button>
+            <button type="button" class="btn btn-danger disabled active interphase-button phase-button">interphase</button>
+            <button type="button" class="btn btn-primary disabled active adhesive-button phase-button">adhesive</button>
           </div>
           <div class="btn-group-vertical" role="group" aria-label="...">
-            <button type="button" class="btn btn-default disabled color-button">color</button>
+            <button type="button" class="btn btn-default color-button">color</button>
             <button type="button" class="btn btn-default disabled auto-rotate-button">auto rotate</button>
           </div>
         </div>
@@ -103,32 +108,32 @@
       <div class="row">
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="thumb01.png" alt="step 1" />
+            <img src="step1/thumb01.png" id="step1" class="active" />
           </div>
         </div>
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="thumb02.png" alt="step 2" />
+            <img src="thumb02.png" id="step2" />
           </div>
         </div>
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="thumb03.png" alt="step 3" />
+            <img src="thumb03.png" id="step3" />
           </div>
         </div>
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="thumb01.png" alt="step 4" />
+            <img src="step1/thumb01.png" id="step4" />
           </div>
         </div>
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="thumb02.png" alt="step 5" />
+            <img src="thumb02.png" id="step5" />
           </div>
         </div>
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="thumb03.png" alt="step 6" />
+            <img src="thumb03.png" id="step6" />
           </div>
         </div>
       </div>
