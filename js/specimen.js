@@ -9,8 +9,8 @@ function changestep(step) {
 	var newdir = step.attr("id");
 
 	$('.big-image img').each( function() {
-		$(this).attr('src', $(this).attr("src").replace(/step\d/g, newdir));
-		//console.log($(this).attr("src"));
+		$(this).attr('src', $(this).attr("src").replace(/step0\d/g, newdir));
+		console.log($(this).attr("src"));
 	});
 }
 
