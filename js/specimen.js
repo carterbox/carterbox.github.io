@@ -10,7 +10,23 @@ function changestep(step) {
 
 	$('.big-image img').each( function() {
 		$(this).attr('src', $(this).attr("src").replace(/step0\d/g, newdir));
-		console.log($(this).attr("src"));
+		//console.log($(this).attr("src"));
+	});
+}
+
+function pad(num, size) {
+    var s = num + "";
+    while (s.length < size) s = "0" + s;
+    return s;
+}
+
+function changeview(angle) {
+	// Loads the viewing angle for the slider.
+	var index = pad(angle/10,2);
+
+	$('.big-image img').each( function() {
+		$(this).attr('src', $(this).attr("src").replace(/\d\d.gif/g, index + ".gif"));
+		//console.log($(this).attr("src"));
 	});
 }
 
@@ -46,6 +62,7 @@ var main = function() {
 		step: 10,
 		slide: function( event, ui ) {
 			$( "#view-angle" ).val(ui.value );
+			changeview(ui.value);
 		}
 	});
 	$( "#view-angle" ).val($( "#slider" ).slider( "value" ) );
