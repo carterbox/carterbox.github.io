@@ -39,4 +39,14 @@ var main = function() {
 	$('.previews img').click(function() {
 		changestep($(this));
 	});
+	$( "#slider" ).slider({
+		value: 0,
+		min: 0,
+		max: 359,
+		step: 10,
+		slide: function( event, ui ) {
+			$( "#view-angle" ).val(ui.value );
+		}
+	});
+	$( "#view-angle" ).val($( "#slider" ).slider( "value" ) );
 };

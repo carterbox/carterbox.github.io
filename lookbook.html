@@ -2,12 +2,14 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!--- Libraries for WebGL rendering --->
+  <!--- Libraries for UI elements --->
   <script type="text/javascript" SRC="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" SRC="js/jquery-ui.min.js"></script>
+  <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
+  <!--- Libraries for WebGL rendering --->
   <script type="text/javascript" SRC="js/three.min.js"></script>
   <script type="text/javascript" SRC="js/OBJLoader.js"></script>
   <script type="text/javascript" SRC="js/OrbitControls.js"></script>
-  <!---<script src="Detector.js"></script>--->
   <script type="text/javascript" SRC="js/specimen.js" ></script>
   <!--- Style Sheets --->
   <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
@@ -85,6 +87,11 @@
           <div id = "spin-color" class="hidden">
             <img id = "spin-a" src="step01/step01a.gif" alt="" class="hidden"/>
             <img id = "spin-c" src="step01/step01c.gif" alt="" class=""/>
+          </div>
+          <div id="slider"></div>
+          <div class="slider-description">
+            	<label for="view-angle">viewing angle (deg.) </label>
+              <input type="text" id="view-angle" readonly style="border:0; font-weight:bold;"/>
           </div>
         </div>
         <div class="switchboard col-md-1">
