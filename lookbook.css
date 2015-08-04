@@ -1,3 +1,4 @@
+
 /*---jumbotron---*/
 .jumbotron {
   background-color: #e6e6e6
@@ -11,16 +12,19 @@
   border-bottom: 1px solid #dbdbdb;
 }
 .profile img{
-    max-height: 700px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+  max-height: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .profile .switchboard {
   padding-top: 100px;
 }
 .profile .switchboard .btn-group-vertical {
   margin-bottom: 20px;
+}
+.slider-description input {
+  text-align: right;
 }
 /*---footnote---*/
 .footnote .container {
