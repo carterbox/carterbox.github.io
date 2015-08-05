@@ -66,4 +66,8 @@ var main = function() {
 		}
 	});
 	$( "#view-angle" ).val($( "#slider" ).slider( "value" ) );
+	$('img').each( function() {
+		$(this).attr('src', $(this).attr("src").replace(/SPECIMEN/g, urlParams["sample"]));
+		console.log($(this).attr("src"));
+	});
 };

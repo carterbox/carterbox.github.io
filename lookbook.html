@@ -14,6 +14,21 @@
   <!--- Style Sheets --->
   <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
   <link rel="stylesheet" href="lookbook.css">
+  <!--- Gets Parameters from the URL
+        Thanks, Andy E from stackoverflow.com/users/94197/andy-e--->
+  <script type="text/javascript">
+    var urlParams;
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    urlParams = {};
+    while (match = search.exec(query)) {
+      urlParams[decode(match[1])] = decode(match[2]);
+    }
+  </script>
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -83,10 +98,10 @@
           </table>
         </div>
         <div id="spin-gif" class="big-image col-md-7">
-            <img id = "spin-b" src="step01/black/b0000.gif" alt="" class=""/>
+            <img id = "spin-b" src="SPECIMEN/step01/black/b0000.gif" alt="" class=""/>
           <div id = "spin-color" class="hidden">
-            <img id = "spin-a" src="step01/adhesive/a0000.gif" alt="" class="hidden"/>
-            <img id = "spin-c" src="step01/color/c0000.gif" alt="" class=""/>
+            <img id = "spin-a" src="SPECIMEN/step01/adhesive/a0000.gif" alt="" class="hidden"/>
+            <img id = "spin-c" src="SPECIMEN/step01/color/c0000.gif" alt="" class=""/>
           </div>
           <div id="slider"></div>
           <div class="slider-description">
@@ -115,32 +130,32 @@
       <div class="row">
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="step01/thumb01.png" id="step01" class="active" />
+            <img src="SPECIMEN/step01/thumb01.png" id="step01" class="active" />
           </div>
         </div>
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="step02/thumb02.png" id="step02" />
+            <img src="SPECIMEN/step02/thumb02.png" id="step02" />
           </div>
         </div>
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="step03/thumb03.png" id="step03" />
+            <img src="SPECIMEN/step03/thumb03.png" id="step03" />
           </div>
         </div>
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="step04/thumb04.png" id="step04" />
+            <img src="SPECIMEN/step04/thumb04.png" id="step04" />
           </div>
         </div>
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="step05/thumb05.png" id="step05" />
+            <img src="SPECIMEN/step05/thumb05.png" id="step05" />
           </div>
         </div>
         <div class="col-md-2">
           <div class="thumbnail">
-            <img src="step06/thumb06.png" id="step06" />
+            <img src="SPECIMEN/step06/thumb06.png" id="step06" />
           </div>
         </div>
       </div>
