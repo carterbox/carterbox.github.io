@@ -1,6 +1,7 @@
 function changestep(step) {
 	// Loads the data for the clicked step preview.
-	$('.previews img').toggleClass('active');
+	$('.previews .thumbnail').removeClass('active');
+	$(step).addClass('active');
 	var newdir = step.attr("id");
 
 	$('.big-image img').each( function() {
@@ -28,37 +29,46 @@ function changeview(angle) {
 
 function changedata(step) {
 	// Loads speciment data into the table
-	$(".step").text(1);
+	var stepid = step.attr("id")
+	var stepindex = Number(stepid.charAt(stepid.length-1))-1;
+
+	$(".step").text(stepindex + 1);
+	$(".proj").text(SampleData.proj[stepindex]);
+	$(".load").text(SampleData.load[stepindex].toFixed(2) + " N");
 }
 
 function init() {
 
 	// Replace the specimen name
 	$(".sample-name").text(urlParams["sample"]);
+
 	// Load the json file from the directory
-	//sampleData = {};
-	//getJSON("./SPECIMEN/data.json", function(data) {
-	//	sampleData = data;
-	//}
+	$.getJSON( "http://people.oregonstate.edu/~chingd/" + urlParams["sample"] + "/data.json", function(data, textStatus, jqXHR) {
+		if (textStatus === "success") {
+			//alert("Success");
+			//console.log(data);
+			SampleData = data;
+			// Replace all the constant text
+			$(".species").text(SampleData.species);
+			$(".adhesive").text(SampleData.adhesive);
+			$(".cell-type").text(SampleData.celltype);
+			$(".radial").text(SampleData.radial.toFixed(2) + " mm");
+			$(".tangential").text(SampleData.tangential.toFixed(2) + " mm");
+			$(".notes").text(SampleData.notes);
+			$(".num-steps").text(SampleData.numsteps);
 
-	// Replace all the constant text
-	$(".species").text(SampleData.species);
-	$(".adhesive").text(SampleData.adhesive);
-	$(".cell-type").text(SampleData.celltype);
-	$(".radial").text(SampleData.radial);
-	$(".tangential").text(SampleData.tangential);
-	$(".notes").text(SampleData.notes);
-	$(".num-steps").text(SampleData.numsteps);
-	
-	// Hide extra step thumbs
-	for (var i = 6; i > SampleData.numsteps; i--) {
-		var thumbid = ".step0" + i;
-		$(thumbid).addClass("hidden");
-	}
+			// Hide extra step thumbs
+			for (var i = 6; i > SampleData.numsteps; i--) {
+				var thumbid = "#step0" + i;
+				$(thumbid).addClass("hidden");
+			}
 
-	// Replace step variable data
-	changedata('step01');
-
+			// Replace step variable data
+			changedata($('#step01'));
+		} else if (textStatus === "error") {
+				//alert("Error: " + jqXHR.status + ": " + jqXHR.statusText);
+		}
+	});
 }
 
 var main = function() {
@@ -100,15 +110,15 @@ var main = function() {
 	$( "#view-angle" ).val($( "#slider" ).slider( "value" ) );
 
 	// Step previews
-	$('.previews img').click(function() {
+	$('.previews .thumbnail').click(function() {
 		changestep($(this));
-		//changedata($(this));
+		changedata($(this));
 	});
 
 	// Initialize image links and load specimen information.
 	$('img').each( function() {
 		$(this).attr('src', $(this).attr("src").replace(/SPECIMEN/g, urlParams["sample"]));
-		console.log($(this).attr("src"));
+		//console.log($(this).attr("src"));
 	});
 
 	init();
