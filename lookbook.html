@@ -3,44 +3,71 @@
 <head>
   <meta charset="utf-8">
   <!--- External Libraries for UI elements --->
-  <script type="text/javascript" SRC="js/jquery-2.1.4.min.js"></script>
-  <script type="text/javascript" SRC="js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+  <script type="text/javascript" SRC="assets/js/jquery-ui.min.js"></script>
   <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <!--- My Libraries --->
-  <script type="text/javascript" SRC="js/specimen.js" ></script>
+  <script type="text/javascript" SRC="assets/js/lookbook.js" ></script>
+  <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="lookbook.css">
-  <!--- Gets Parameters from the URL
-        Thanks, Andy E from stackoverflow.com/users/94197/andy-e--->
-  <script type="text/javascript">
-    var urlParams, SampleData;
-    var match,
-        pl     = /\+/g,  // Regex for replacing addition symbol with a space
-        search = /([^&=]+)=?([^&]*)/g,
-        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-        query  = window.location.search.substring(1);
 
-    urlParams = {};
-    while (match = search.exec(query)) {
-      urlParams[decode(match[1])] = decode(match[2]);
-    }
-  </script>
 </head>
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#"></a>
-      </div>
-      <div>
-        <ul class="nav navbar-nav">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li class="active"><a href="#">Lookbook</a></li>
-        </ul>
-      </div>
+
+<!-- Header -->
+  <div id="header">
+
+    <div class="top">
+
+      <!-- Logo -->
+        <div id="logo">
+          <span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
+          <h1 id="title">Daniel Ching</h1>
+          <p>Materials Science</p>
+          <p>Oregon State Unversity</p>
+        </div>
+
+      <!-- Nav -->
+        <nav id="nav">
+          <!--
+
+            Prologue's nav expects links in one of two formats:
+
+            1. Hash link (scrolls to a different section within the page)
+
+               <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
+
+            2. Standard link (sends the user to another page/site)
+
+               <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
+
+          -->
+          <ul>
+            <li><a href="index.html#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Intro</span></a></li>
+            <li><a href="index.html#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Portfolio</span></a></li>
+            <li><a href="index.html#publications" id="publications-link" class="skel-layers-ignoreHref"><span class="icon">Publications</span></a></li>
+            <li><a href="index.html#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About</span></a></li>
+          </ul>
+        </nav>
+
     </div>
-  </nav>
+
+    <div class="bottom">
+
+      <!-- Social Icons -->
+        <ul class="icons">
+          <li><a href="https://www.facebook.com/daniel.ching.969" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+          <li><a href="http://github.com/carterbox" class="icon fa-github"><span class="label">Github</span></a></li>
+          <li><a href="emailto:chingd@onid.oregonstat.edu" class="icon fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+
+    </div>
+
+  </div>
+
+<!-- Main -->
+<div id="main">
 
   <div class="jumbotron">
     <div class="container">
@@ -55,7 +82,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <h4>Specimen Data</h4>
+          <h3>Specimen Data</h3>
           <table class="table">
             <tbody>
               <tr>
@@ -124,7 +151,7 @@
 <!--- Links to other loading steps --->
   <div class="previews">
     <div class="container">
-      <h2>Scans at other loads</h2>
+      <h3>Scans at other loads</h3>
       <div class="row">
         <div class="col-md-2">
           <div class="thumbnail active" id="step01" >
@@ -159,18 +186,35 @@
       </div>
     </div>
   </div>
-<!--- Footnotes and links to full data sets in Repository -->
-  <div class="footnote">
-    <div class="container">
-      <p>
-        Disclaimers and such.
-      </p>
-    </div>
+
+</div>
+
+<!-- Footer -->
+  <div id="footer">
+
+    <!-- Copyright -->
+      <ul class="copyright">
+        <li>&copy; Daniel Ching. All rights reserved.</li><li>This page was based on a template from <a href="http://html5up.net">HTML5 UP</a></li>
+      </ul>
+
   </div>
 
   <script type="text/javascript">
+  // Gets Parameters from the URL
+  // Thanks, Andy E from stackoverflow.com/users/94197/andy-e
+    var urlParams, SampleData;
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    urlParams = {};
+    while (match = search.exec(query)) {
+      urlParams[decode(match[1])] = decode(match[2]);
+    }
+
     $(document).ready(main);
   </script>
-
 </body>
 </html>

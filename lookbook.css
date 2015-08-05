@@ -29,14 +29,6 @@
 /*---previews---*/
 .previews .active {
   border-style: solid;
-  border-color: red;
-}
-
-/*---footnote---*/
-.footnote .container {
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-.footnote p  {
-  text-align: right;
+  border-width: medium;
+  border-color: orangered;
 }
