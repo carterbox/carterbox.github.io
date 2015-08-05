@@ -1,0 +1,11 @@
+{
+  "species" : "Acer spp.",
+  "adhesive" : "glue",
+  "cell-type" : "early late",
+  "radial" : 2.00,
+  "tangential" : 2.00,
+  "notes" : "This is an interesting sample.",
+  "num-steps" : 6,
+  "proj" : [0,0,0,0,0,0],
+  "load" : [0.0,0.0,0.0,0.0,0.0,0.0]
+}
