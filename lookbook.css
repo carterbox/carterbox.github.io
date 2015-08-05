@@ -11,7 +11,7 @@
   background-color: #fff;
   border-bottom: 1px solid #dbdbdb;
 }
-.profile img{
+.profile img {
   max-height: 500px;
   display: block;
   margin-left: auto;
@@ -26,6 +26,12 @@
 .slider-description input {
   text-align: right;
 }
+/*---previews---*/
+.previews .active {
+  border-style: solid;
+  border-color: red;
+}
+
 /*---footnote---*/
 .footnote .container {
   padding-top: 100px;

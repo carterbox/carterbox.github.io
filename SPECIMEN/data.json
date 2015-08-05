@@ -1,11 +1,13 @@
-{
+var SampleData = {
   "species" : "Acer spp.",
   "adhesive" : "glue",
-  "cell-type" : "early late",
-  "radial" : 2.00,
-  "tangential" : 2.00,
+  "celltype" : "sleepy",
+  "radial" : "2.00",
+  "tangential" : "2.00",
   "notes" : "This is an interesting sample.",
-  "num-steps" : 6,
+  "numsteps" : 4,
   "proj" : [0,0,0,0,0,0],
   "load" : [0.0,0.0,0.0,0.0,0.0,0.0]
-}
+};
+
+console.log("json loaded");

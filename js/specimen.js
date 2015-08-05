@@ -28,19 +28,33 @@ function changeview(angle) {
 
 function changedata(step) {
 	// Loads speciment data into the table
-
+	$(".step").text(1);
 }
 
 function init() {
 
 	// Replace the specimen name
-
+	$(".sample-name").text(urlParams["sample"]);
 	// Load the json file from the directory
-	sampleData = {};
+	//sampleData = {};
+	//getJSON("./SPECIMEN/data.json", function(data) {
+	//	sampleData = data;
+	//}
 
 	// Replace all the constant text
-
-	// Remove extra step thumbs
+	$(".species").text(SampleData.species);
+	$(".adhesive").text(SampleData.adhesive);
+	$(".cell-type").text(SampleData.celltype);
+	$(".radial").text(SampleData.radial);
+	$(".tangential").text(SampleData.tangential);
+	$(".notes").text(SampleData.notes);
+	$(".num-steps").text(SampleData.numsteps);
+	
+	// Hide extra step thumbs
+	for (var i = 6; i > SampleData.numsteps; i--) {
+		var thumbid = ".step0" + i;
+		$(thumbid).addClass("hidden");
+	}
 
 	// Replace step variable data
 	changedata('step01');
@@ -97,5 +111,5 @@ var main = function() {
 		console.log($(this).attr("src"));
 	});
 
-	//init();
+	init();
 };
