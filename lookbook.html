@@ -2,17 +2,13 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!--- Libraries for UI elements --->
+  <!--- External Libraries for UI elements --->
   <script type="text/javascript" SRC="js/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" SRC="js/jquery-ui.min.js"></script>
   <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
-  <!--- Libraries for WebGL rendering --->
-  <script type="text/javascript" SRC="js/three.min.js"></script>
-  <script type="text/javascript" SRC="js/OBJLoader.js"></script>
-  <script type="text/javascript" SRC="js/OrbitControls.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!--- My Libraries --->
   <script type="text/javascript" SRC="js/specimen.js" ></script>
-  <!--- Style Sheets --->
-  <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
   <link rel="stylesheet" href="lookbook.css">
   <!--- Gets Parameters from the URL
         Thanks, Andy E from stackoverflow.com/users/94197/andy-e--->
@@ -54,7 +50,7 @@
       </p>
     </div>
   </div>
-
+  <!--- Profile containing text about the sample.--->
   <div class="profile">
     <div class="container">
       <div class="row">
@@ -97,6 +93,7 @@
             </tbody>
           </table>
         </div>
+  <!--- Spinning subsection of the sample --->
         <div id="spin-gif" class="big-image col-md-7">
             <img id = "spin-b" src="SPECIMEN/step01/black/b0000.gif" alt="" class=""/>
           <div id = "spin-color" class="hidden">
@@ -105,10 +102,11 @@
           </div>
           <div id="slider"></div>
           <div class="slider-description">
-            	<label for="view-angle">viewing angle (deg.) </label>
-              <input type="text" id="view-angle" readonly style="border:0; font-weight:bold;"/>
+          	<label for="view-angle">viewing angle (deg.) </label>
+            <input type="text" id="view-angle" readonly style="border:0; font-weight:bold;"/>
           </div>
         </div>
+
         <div class="switchboard col-md-1">
           <div class="btn-group-vertical disabled" role="group" aria-label="...">
             <button type="button" class="btn btn-success disabled active wood-button phase-button">wood</button>
@@ -123,7 +121,7 @@
       </div>
     </div>
   </div>
-
+<!--- Links to other loading steps --->
   <div class="previews">
     <div class="container">
       <h2>Scans at different loads</h2>
@@ -161,7 +159,7 @@
       </div>
     </div>
   </div>
-
+<!--- Footnotes and links to full data sets in Repository -->
   <div class="footnote">
     <div class="container">
       <p>
@@ -169,10 +167,10 @@
       </p>
     </div>
   </div>
+
   <script type="text/javascript">
-    // THREE script that displays error message if no webGL support.
-    //if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
     $(document).ready(main);
   </script>
+  
 </body>
 </html>
