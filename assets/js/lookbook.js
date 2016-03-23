@@ -22,7 +22,7 @@ function changeview(angle) {
 	var index = pad(angle/10,2);
 
 	$('.big-image img').each( function() {
-		$(this).attr('src', $(this).attr("src").replace(/\d\d.gif/g, index + ".gif"));
+		$(this).attr('src', $(this).attr("src").replace(/\d\d.png/g, index + ".png"));
 		//console.log($(this).attr("src"));
 	});
 }
@@ -43,7 +43,7 @@ function init() {
 	$(".sample-name").text(urlParams["sample"]);
 
 	// Load the json file from the directory
-	$.getJSON( "http://people.oregonstate.edu/~chingd/" + urlParams["sample"] + "/data.json", function(data, textStatus, jqXHR) {
+	$.getJSON( "./samples/" + urlParams["sample"] + "/data.json", function(data, textStatus, jqXHR) {
 		if (textStatus === "success") {
 			//alert("Success");
 			//console.log(data);
