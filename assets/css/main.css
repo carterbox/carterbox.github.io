@@ -1,5 +1,5 @@
 @import url("font-awesome.min.css");
-@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+/* @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600"); */
 
 /*
 	Prologue by HTML5 UP
@@ -2162,7 +2162,7 @@
 
 			#main > section.one {
 				background-color: #81918E;
-				background-image: url("../../images/APSbeamline.jpg");
+				background-image: url("../../images/argonne_wetland.png");
 			}
 
 			#main > section.two {
